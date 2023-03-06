@@ -1,0 +1,38 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('content'); ?>
+
+ <h3 style="margin: 0 auto;text-align : center;">Thêm sản phẩm</h3>
+
+ <?php if(isset($_SESSION['errors']) && isset($_GET['msg']) ): ?>
+ <ul style="list-style: none">
+ <?php $__currentLoopData = $_SESSION['errors']; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $error): $loop = $this->incrementLoopIndices();  ?>
+ <li style="color: red;text-align: center"><?php echo \htmlentities($error??'', ENT_QUOTES, 'UTF-8', false); ?></li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </ul>
+ <?php endif; ?>
+ <?php if(isset($_SESSION['success']) && isset($_GET['msg']) ): ?>
+ <p style="color: green;text-align: center"><?php echo \htmlentities($_SESSION['success']??'', ENT_QUOTES, 'UTF-8', false); ?></p>
+ <?php endif; ?>
+ <form method="post"  style="text-align: center;margin: 10px;padding: 10px" action="<?php echo \htmlentities(router('addpropost')??'', ENT_QUOTES, 'UTF-8', false); ?>" enctype="multipart/form-data">
+ <span>Tên</span><input name="namepro" placeholder="tên sản phẩm"/><br>
+ <span>Giá</span><input name="price" placeholder="giá sản phẩm"/><br>
+ <span>Danh mục</span><select name="cate_id">
+ <?php $__currentLoopData = $category; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $index =>$value): $loop = $this->incrementLoopIndices();  ?>
+ <option value="<?php echo \htmlentities($value->id??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($value->name??'', ENT_QUOTES, 'UTF-8', false); ?></option>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </select><br>
+ <span>Thông tin</span><input name="detail" placeholder="thông tin sản phẩm"/><br>
+ <span>Ảnh</span><input type="file" name="image" placeholder="ảnh sản phẩm"/><br>
+ <span>Chọn mã giảm giá</span><select name="voucher_id">
+ <?php $__currentLoopData = $voucher; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $index =>$value): $loop = $this->incrementLoopIndices();  ?>
+ <option value="<?php echo \htmlentities($value->id??'', ENT_QUOTES, 'UTF-8', false); ?>"><?php echo \htmlentities($value->name??'', ENT_QUOTES, 'UTF-8', false); ?></option>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </select><br>
+ <button name="btn_addpro">thêm</button>
+ </form>
+ <a class="addcate" style="" href="<?php echo \htmlentities(router('product')??'', ENT_QUOTES, 'UTF-8', false); ?>"><p>Về Trang Sản Phẩm</p></a>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout.main'); } ?>

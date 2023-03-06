@@ -1,0 +1,20 @@
+{
+    "name": "leethao2k3/assignment",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lee Thao",
+            "email": "105211283+thaole2003@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "phroute/phroute": "^2.2",
+        "illuminate/events": "^9.51",
+        "eftec/bladeone": "^4.8",
+        "illuminate/database": "^9.51"
+    }
+}

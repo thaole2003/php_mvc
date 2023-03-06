@@ -1,0 +1,29 @@
+h3{
+    text-align: center;
+    color: darkgoldenrod;
+}
+.form{
+    text-align: center;
+    min-width: 50%;
+    margin: 0 auto;
+}
+.btnEdit{
+    width: 40px;
+    margin: 20px auto;
+}
+.return{
+    text-align: center;
+}
+.table{
+    width: 70%;
+    text-align: center;
+    align-items: center;
+
+    justify-content: center;
+
+}
+.addcate{
+    text-align: center; width: 40px;height: 20px;
+    text-decoration: none;background-color: aqua;color:black
+}
+
